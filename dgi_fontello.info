@@ -1,0 +1,5 @@
+name = DGI Fontello
+description = Add a custom fontello distribution from the libraries directory.
+dependencies[] = icon
+dependencies[] = libraries
+core = 7.x
