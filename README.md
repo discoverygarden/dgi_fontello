@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # DGI Fontello
 
 ## Introduction
@@ -51,6 +50,3 @@ contact [discoverygarden](http://support.discoverygarden.ca).
 ## License
 
 [GPLv3](http://www.gnu.org/licenses/gpl-3.0.txt)
-=======
-# dgi_fontello
->>>>>>> 0392844fd60fcc5405c73bfc1df0b725f4b02186
