@@ -22,7 +22,7 @@ function dgi_fontello_icon_providers() {
  */
 function dgi_fontello_icon_bundle_configure(&$settings, &$form_state, &$complete_form) {
   $bundle = $form_state['bundle'];
-  if ($bundle['provider'] === 'DGI SAAS Fontello') {
+  if ($bundle['provider'] === 'DGI Fontello') {
     $settings['tag'] = array(
       '#type' => 'select',
       '#title' => t('HTML Markup'),
@@ -38,7 +38,7 @@ function dgi_fontello_icon_bundle_configure(&$settings, &$form_state, &$complete
  */
 function dgi_fontello_preprocess_icon_sprite(&$variables) {
   $bundle = &$variables['bundle'];
-  if ($bundle['provider'] === 'DGI SAAS Fontello') {
+  if ($bundle['provider'] === 'DGI Fontello') {
     $variables['attributes']['class'][] = 'icon-' . $variables['icon'];
   }
 }
@@ -47,11 +47,11 @@ function dgi_fontello_preprocess_icon_sprite(&$variables) {
  * Implements hook_libraries_info().
  */
 function dgi_fontello_libraries_info() {
-  $library = libraries_get_path('saas_fontello');
+  $library = libraries_get_path('dgi_fontello');
 
   $libraries = array();
-  $libraries['saas_fontello'] = array(
-    'name' => 'Fontello (SAAS)',
+  $libraries['dgi_fontello'] = array(
+    'name' => 'DGI Fontello',
     'vendor url' => 'http://fontello.com/',
     'download url' => 'https://github.com/fontello/fontello.git',
     'version callback' => 'dgi_fontello_short_circuit_version',
@@ -79,16 +79,16 @@ function dgi_fontello_short_circuit_version() {
  */
 function dgi_fontello_preprocess_html(&$variables) {
   // Make the icon library available on every page.
-  libraries_load('saas_fontello');
+  libraries_load('dgi_fontello');
 }
 
 /**
  * Implements hook_icon_bundles().
  */
 function dgi_fontello_icon_bundles() {
-  $library_path = libraries_get_path('saas_fontello');
+  $library_path = libraries_get_path('dgi_fontello');
 
-  // Read the config.json from the fontello export in the saas_fontello
+  // Read the config.json from the fontello export in the dgi_fontello
   // Library.
   $icons = array();
   $json_string = file_get_contents("$library_path/config.json");
@@ -99,10 +99,10 @@ function dgi_fontello_icon_bundles() {
     $icons[$glyph['css']] = $glyph['css'];
   }
 
-  $bundles['saas_default_bundle'] = array(
+  $bundles['dgi_default_bundle'] = array(
     'render' => 'sprite',
-    'title' => t('DGI SAAS Fontello'),
-    'provider' => t('DGI SAAS Fontello'),
+    'title' => t('DGI Fontello'),
+    'provider' => t('DGI Fontello'),
     'url' => 'http://fontello.com/',
     'path' => $library_path,
     'icons' => $icons,

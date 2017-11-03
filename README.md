@@ -24,7 +24,7 @@ further information
 Download the desired fontello configuration on the
 [Fontello](http://fontello.com/) site, extract the fontello folder to 
 'sites/all/libraries' directory, and RENAME the fontello folder to 
-'saas_fontello'. The config.json will automatically be parsed and 
+'dgi_fontello'. The config.json will automatically be parsed and 
 iterated on to compile the font names with there associated CSS 
 classes.
 
